@@ -1,0 +1,148 @@
+.shows-page {
+  min-height: calc(100vh - 80px);
+  padding: 2rem 0;
+}
+
+.shows-page h1 {
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  color: #333;
+}
+
+.filters {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  padding: 1.5rem;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.shows-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.show-card-large {
+  background: white;
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.show-card-large:hover {
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+}
+
+.show-event-info {
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid #f0f0f0;
+}
+
+.show-event-info h3 {
+  font-size: 1.75rem;
+  color: #333;
+  margin-bottom: 0.5rem;
+}
+
+.show-category {
+  display: inline-block;
+  background: #667eea;
+  color: white;
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.show-details-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.show-detail-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.show-detail-item strong {
+  color: #666;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.show-detail-item > div:not(.progress-bar) {
+  color: #333;
+  font-size: 1rem;
+}
+
+.venue-location {
+  color: #666;
+  font-size: 0.85rem;
+}
+
+.show-time {
+  color: #667eea;
+  font-weight: 600;
+}
+
+.price {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #667eea;
+}
+
+.availability {
+  color: #666;
+  font-size: 0.85rem;
+}
+
+.occupancy {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #27ae60;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 8px;
+  background: #f0f0f0;
+  border-radius: 4px;
+  overflow: hidden;
+  margin-top: 0.5rem;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #27ae60 0%, #2ecc71 100%);
+  transition: width 0.3s ease;
+}
+
+.no-shows {
+  text-align: center;
+  padding: 4rem 2rem;
+  color: #666;
+}
+
+@media (max-width: 768px) {
+  .filters {
+    grid-template-columns: 1fr;
+  }
+  
+  .show-details-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+
+

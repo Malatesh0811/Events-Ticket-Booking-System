@@ -1,0 +1,593 @@
+.booking-page {
+  min-height: calc(100vh - 80px);
+  padding: 2rem 0;
+}
+
+.booking-header {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 2rem;
+  margin-bottom: 3rem;
+  align-items: start;
+}
+
+.booking-header h1 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+.show-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  color: #666;
+}
+
+.booking-summary-card {
+  background: white;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 100px;
+}
+
+.booking-summary-card h3 {
+  margin-bottom: 1.5rem;
+  color: #333;
+}
+
+.summary-item {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.total-amount {
+  font-size: 1.5rem;
+  color: #667eea;
+}
+
+.seat-selection {
+  background: white;
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.screen-indicator {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.screen {
+  display: inline-block;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 1rem 3rem;
+  border-radius: 8px;
+  font-weight: bold;
+  font-size: 1.25rem;
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+}
+
+.venue-visualization {
+  width: 100%;
+  margin-bottom: 1rem;
+}
+
+.sports-venue {
+  background: linear-gradient(180deg, #2ecc71 0%, #27ae60 50%, #229954 100%);
+  border-radius: 8px;
+  padding: 2rem;
+  min-height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Fallback list of stands under the cricket field */
+.sports-stand-list {
+  position: relative;
+  margin-top: 0.75rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  justify-content: center;
+  z-index: 6;
+}
+
+.cricket-field-container {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cricket-field {
+  width: 250px;
+  height: 250px;
+  border: 4px solid rgba(255, 255, 255, 0.6);
+  border-radius: 50%;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.1);
+  z-index: 2;
+  cursor: pointer;
+  transition: box-shadow 0.2s ease, transform 0.1s ease;
+}
+
+.cricket-field:hover {
+  box-shadow: 0 0 0 6px rgba(255, 255, 255, 0.2), 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.field-center {
+  width: 80px;
+  height: 80px;
+  border: 3px solid rgba(255, 255, 255, 0.8);
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.field-text {
+  position: absolute;
+  bottom: -35px;
+  color: white;
+  font-weight: bold;
+  font-size: 1.3rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  z-index: 3;
+}
+
+.stands-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 5;
+}
+
+/* Stand picker modal */
+.stand-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 50;
+}
+
+.stand-modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: min(720px, 92vw);
+  max-height: 80vh;
+  overflow: hidden;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
+  z-index: 60;
+  display: flex;
+  flex-direction: column;
+}
+
+.stand-modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 1.25rem;
+  border-bottom: 1px solid #eee;
+  font-weight: 700;
+  color: #333;
+}
+
+.stand-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.75rem;
+  padding: 1rem;
+}
+
+@media (min-width: 640px) {
+  .stand-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.stand-item {
+  background: #f8fafc;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  padding: 0.9rem 1rem;
+  text-align: left;
+  cursor: pointer;
+  transition: transform 0.12s ease, box-shadow 0.12s ease, border-color 0.12s ease;
+}
+
+.stand-item:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.07);
+  border-color: #d1d5db;
+}
+
+.stand-item-title {
+  font-weight: 700;
+  color: #111827;
+}
+
+.stand-item-sub {
+  margin-top: 0.25rem;
+  font-size: 0.85rem;
+  color: #6b7280;
+}
+
+/* Fixed top-right Book action */
+.book-top-right {
+  position: fixed;
+  top: 96px; /* below app header */
+  right: 16px;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(6px);
+  border: 1px solid #e5e7eb;
+  border-radius: 999px;
+  padding: 8px 10px 8px 12px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+}
+.book-top-right .btn {
+  border-radius: 999px;
+  padding: 8px 16px;
+}
+.book-summary-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 10px;
+  background: #f3f4f6;
+  color: #111827;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 13px;
+}
+.book-summary-chip .dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 999px;
+  background: #10b981;
+}
+
+@media (max-width: 640px) {
+  .book-top-right {
+    left: 12px;
+    right: 12px;
+    justify-content: space-between;
+    top: 84px;
+  }
+  .book-summary-chip { display: none; }
+}
+
+/* Accessibility: focus-visible rings */
+button:focus-visible,
+.stand-item:focus-visible,
+.cricket-field:focus-visible,
+.stand-button:focus-visible,
+.close-stand-btn:focus-visible {
+  outline: 3px solid #2563eb;
+  outline-offset: 2px;
+}
+
+/* Loading skeletons */
+.skeleton {
+  position: relative;
+  overflow: hidden;
+  background: #eee;
+  border-radius: 8px;
+}
+.skeleton::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  transform: translateX(-100%);
+  background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.6) 50%, rgba(255,255,255,0) 100%);
+  animation: skeleton-shimmer 1.2s infinite;
+}
+@keyframes skeleton-shimmer {
+  100% { transform: translateX(100%); }
+}
+.skeleton-text { height: 14px; width: 60%; margin: 6px 0; }
+.skeleton-title { height: 22px; width: 40%; margin: 8px 0; }
+.skeleton-row { height: 36px; margin-bottom: 10px; }
+.skeleton-chip { height: 28px; width: 90px; display: inline-block; margin-right: 8px; border-radius: 999px; }
+
+.stand-button {
+  background: rgba(255, 255, 255, 0.9);
+  border: 3px solid #fff;
+  border-radius: 8px;
+  padding: 0.75rem 1.5rem;
+  font-weight: bold;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  color: #27ae60;
+  min-width: 100px;
+  text-align: center;
+  z-index: 6;
+}
+
+.stand-button:hover {
+  background: rgba(255, 255, 255, 1);
+  transform: translate(-50%, -50%) scale(1.1);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+.stand-button.selected {
+  background: #f39c12;
+  color: white;
+  border-color: #e67e22;
+  transform: translate(-50%, -50%) scale(1.15);
+}
+
+.selected-stand-info {
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(243, 156, 18, 0.95);
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-weight: bold;
+  z-index: 10;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.close-stand-btn {
+  background: rgba(255, 255, 255, 0.3);
+  border: none;
+  color: white;
+  font-size: 1.2rem;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.close-stand-btn:hover {
+  background: rgba(255, 255, 255, 0.5);
+  transform: scale(1.1);
+}
+
+.concert-venue {
+  background: linear-gradient(180deg, #1a1a1a 0%, #2d2d2d 50%, #1a1a1a 100%);
+  border-radius: 8px;
+  padding: 2rem;
+  min-height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+/* Concert stands container below the stage */
+.concert-stands {
+  margin-top: 1rem;
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+/* Reuse stand-button but adjust transforms for static flow in concerts */
+.concert-venue .stand-button {
+  position: static;
+  transform: none;
+  min-width: 140px;
+}
+
+.concert-venue .stand-button:hover {
+  transform: scale(1.05);
+}
+
+.stage {
+  width: 80%;
+  height: 80px;
+  background: linear-gradient(180deg, #8b4513 0%, #654321 100%);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+  position: relative;
+}
+
+.stage::before {
+  content: '';
+  position: absolute;
+  top: -10px;
+  left: 0;
+  right: 0;
+  height: 10px;
+  background: repeating-linear-gradient(
+    90deg,
+    #ffd700 0px,
+    #ffd700 10px,
+    #000 10px,
+    #000 20px
+  );
+  border-radius: 8px 8px 0 0;
+}
+
+.stage-text {
+  color: #ffd700;
+  font-weight: bold;
+  font-size: 1.5rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+  letter-spacing: 2px;
+}
+
+.seat-map {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  padding: 1rem;
+  background: #f8f9fa;
+  border-radius: 8px;
+  max-height: 600px;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.seat-row {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.row-label {
+  width: 30px;
+  font-weight: 600;
+  color: #666;
+  text-align: center;
+}
+
+.seats-in-row {
+  display: flex;
+  gap: 0.5rem;
+  flex: 1;
+  flex-wrap: wrap;
+  overflow-x: auto;
+  padding: 0.5rem 0;
+}
+
+.seat {
+  width: 35px;
+  height: 35px;
+  min-width: 35px;
+  border: 2px solid #ddd;
+  background: white;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.7rem;
+  font-weight: 600;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.seat:hover:not(.booked):not(:disabled) {
+  border-color: #667eea;
+  background: #e8f0fe;
+}
+
+.seat.selected {
+  background: #3498db;
+  border-color: #3498db;
+  color: white;
+}
+
+.seat.booked {
+  background: #e74c3c;
+  border-color: #e74c3c;
+  color: white;
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.seat.premium {
+  border-color: #f39c12;
+}
+
+.seat.premium.selected {
+  background: #f39c12;
+}
+
+.seat.vip {
+  border-color: #9b59b6;
+}
+
+.seat.vip.selected {
+  background: #9b59b6;
+}
+
+.seat-legend {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.seat-sample {
+  width: 30px;
+  height: 30px;
+  border: 2px solid #ddd;
+  border-radius: 6px;
+}
+
+.seat-sample.available {
+  background: white;
+  border-color: #ddd;
+}
+
+.seat-sample.selected {
+  background: #3498db;
+  border-color: #3498db;
+}
+
+.seat-sample.booked {
+  background: #e74c3c;
+  border-color: #e74c3c;
+}
+
+.seat-sample.premium {
+  border-color: #f39c12;
+}
+
+.seat-sample.vip {
+  border-color: #9b59b6;
+}
+
+@media (max-width: 768px) {
+  .booking-header {
+    grid-template-columns: 1fr;
+  }
+  
+  .booking-summary-card {
+    position: static;
+  }
+  
+  .seats-in-row {
+    flex-wrap: wrap;
+  }
+}
+
+

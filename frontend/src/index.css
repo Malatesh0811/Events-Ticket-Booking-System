@@ -1,0 +1,67 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --brand: #f84464;
+  --brand-dark: #d73752;
+  --ink: #1f2937;
+  --muted: #6b7280;
+  --surface: #ffffff;
+  --bg: #f6f7f9;
+  --ring: rgba(248, 68, 100, 0.25);
+}
+
+body {
+  font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, Oxygen,
+    Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', Arial,
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: var(--bg);
+  color: var(--ink);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Poppins', 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+}
+
+a { color: inherit; }
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #eceff3;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #c7cbd1;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #aab0b9;
+}
+
+/* Focus visibility and interactive transitions */
+a, button, input, select, textarea {
+  outline: none;
+  transition: color .2s ease, background-color .2s ease, box-shadow .2s ease, border-color .2s ease, transform .15s ease;
+}
+
+:focus-visible {
+  outline: 2px solid transparent;
+  box-shadow: 0 0 0 3px var(--ring);
+  border-radius: 8px;
+}
+

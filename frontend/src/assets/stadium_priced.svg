@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="900" height="900" viewBox="0 0 900 900" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <title>Cricket Stadium Seating - Compass Stands with Prices</title>
+  <desc>Eight compass stands around a cricket field with example prices.</desc>
+  <defs>
+    <linearGradient id="fieldGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#7ddc7a"/>
+      <stop offset="100%" stop-color="#198754"/>
+    </linearGradient>
+    <style>
+      .label { font-family: Arial, Helvetica, sans-serif; fill: #111827; font-weight: 700; }
+      .sublabel { font-family: Arial, Helvetica, sans-serif; fill: #374151; font-size: 14px; }
+      .price { font-family: Arial, Helvetica, sans-serif; fill: #111827; font-size: 18px; font-weight: 700; }
+      .stand { stroke: #ffffff; stroke-width: 3; }
+      .note { font-family: Arial, Helvetica, sans-serif; fill: #6b7280; font-size: 12px; }
+    </style>
+  </defs>
+
+  <!-- Background -->
+  <rect x="0" y="0" width="900" height="900" fill="#f3f4f6"/>
+
+  <!-- Outer bowl -->
+  <circle cx="450" cy="450" r="360" fill="#e5e7eb" stroke="#d1d5db" stroke-width="2"/>
+
+  <!-- Stand wedges (8 segments) -->
+  <!-- Helper function effect via precomputed paths for simplicity -->
+  <!-- Each wedge is a ring sector between r=250 and r=360 -->
+  <!-- Colors per wedge -->
+  <g id="stands">
+    <!-- North (top) -->
+    <path class="stand" d="M450,90 A360,360 0 0 1 701.82,198.18 L659.6,240.4 A300,300 0 0 0 450,150 Z" fill="#D6E4FF"/>
+    <!-- North-East -->
+    <path class="stand" d="M701.82,198.18 A360,360 0 0 1 810,450 L750,450 A300,300 0 0 0 659.6,240.4 Z" fill="#FFE4D6"/>
+    <!-- East -->
+    <path class="stand" d="M810,450 A360,360 0 0 1 701.82,701.82 L659.6,659.6 A300,300 0 0 0 750,450 Z" fill="#E9FFD6"/>
+    <!-- South-East -->
+    <path class="stand" d="M701.82,701.82 A360,360 0 0 1 450,810 L450,750 A300,300 0 0 0 659.6,659.6 Z" fill="#FFF7D6"/>
+    <!-- South -->
+    <path class="stand" d="M450,810 A360,360 0 0 1 198.18,701.82 L240.4,659.6 A300,300 0 0 0 450,750 Z" fill="#D6FFF6"/>
+    <!-- South-West -->
+    <path class="stand" d="M198.18,701.82 A360,360 0 0 1 90,450 L150,450 A300,300 0 0 0 240.4,659.6 Z" fill="#F6D6FF"/>
+    <!-- West -->
+    <path class="stand" d="M90,450 A360,360 0 0 1 198.18,198.18 L240.4,240.4 A300,300 0 0 0 150,450 Z" fill="#FFD6E2"/>
+    <!-- North-West -->
+    <path class="stand" d="M198.18,198.18 A360,360 0 0 1 450,90 L450,150 A300,300 0 0 0 240.4,240.4 Z" fill="#DFFFD6"/>
+  </g>
+
+  <!-- Inner bowl ring -->
+  <circle cx="450" cy="450" r="300" fill="#f9fafb" stroke="#e5e7eb" stroke-width="2"/>
+
+  <!-- Field -->
+  <circle cx="450" cy="450" r="220" fill="url(#fieldGrad)" stroke="#065f46" stroke-width="2"/>
+  <!-- Pitch -->
+  <rect x="435" y="370" width="30" height="160" rx="6" fill="#fef3c7" stroke="#f59e0b" stroke-width="2"/>
+  <text x="450" y="455" text-anchor="middle" class="sublabel" style="font-weight:700; fill:#111827;">PITCH</text>
+
+  <!-- Compass labels and prices -->
+  <!-- North -->
+  <text x="450" y="120" text-anchor="middle" class="label">North</text>
+  <text x="450" y="142" text-anchor="middle" class="price">₹2000</text>
+  <!-- North-East -->
+  <text x="640" y="205" text-anchor="middle" class="label">NE</text>
+  <text x="640" y="227" text-anchor="middle" class="price">₹1900</text>
+  <!-- East -->
+  <text x="780" y="460" text-anchor="middle" class="label">East</text>
+  <text x="780" y="482" text-anchor="middle" class="price">₹1700</text>
+  <!-- South-East -->
+  <text x="640" y="695" text-anchor="middle" class="label">SE</text>
+  <text x="640" y="717" text-anchor="middle" class="price">₹1600</text>
+  <!-- South -->
+  <text x="450" y="780" text-anchor="middle" class="label">South</text>
+  <text x="450" y="802" text-anchor="middle" class="price">₹1500</text>
+  <!-- South-West -->
+  <text x="260" y="695" text-anchor="middle" class="label">SW</text>
+  <text x="260" y="717" text-anchor="middle" class="price">₹1450</text>
+  <!-- West -->
+  <text x="120" y="460" text-anchor="middle" class="label">West</text>
+  <text x="120" y="482" text-anchor="middle" class="price">₹1650</text>
+  <!-- North-West -->
+  <text x="260" y="205" text-anchor="middle" class="label">NW</text>
+  <text x="260" y="227" text-anchor="middle" class="price">₹1850</text>
+
+  <!-- Title -->
+  <text x="450" y="40" text-anchor="middle" class="label" style="font-size:20px;">Cricket Stadium Seating (Example Prices)</text>
+  <text x="450" y="60" text-anchor="middle" class="note">Edit prices or labels in src/assets/stadium_priced.svg to match your show</text>
+</svg>

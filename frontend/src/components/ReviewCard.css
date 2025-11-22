@@ -1,0 +1,54 @@
+.review-card {
+  padding: 1rem;
+  background: #f8f9fa;
+  border-radius: 8px;
+  border-left: 4px solid #667eea;
+  position: relative;
+}
+
+.review-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.review-header > div {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.delete-review-btn {
+  background: none;
+  border: none;
+  font-size: 1.2rem;
+  cursor: pointer;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+}
+
+.delete-review-btn:hover:not(:disabled) {
+  background: #fee;
+  transform: scale(1.1);
+}
+
+.delete-review-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.review-rating {
+  color: #f39c12;
+  font-weight: 600;
+}
+
+.review-date {
+  color: #666;
+  font-size: 0.85rem;
+  margin-top: 0.5rem;
+}
+
+
+
