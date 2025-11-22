@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Ticket Booking System
 
 A comprehensive ticket booking system similar to BookMyShow, supporting multiple event types including Movies, Concerts, Sports, Standup Comedy, Theater, Workshops, and Festivals.
@@ -319,3 +320,6 @@ For issues or questions, please check the code comments or database schema docum
 
 
 
+=======
+# Events-Ticket-Booking-System
+>>>>>>> b74527bd2e8db3d43f4b84ed7b57c13afc83bc4b
